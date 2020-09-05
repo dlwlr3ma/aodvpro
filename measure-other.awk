@@ -1,5 +1,5 @@
 BEGIN{
-rreq=0;rrep=0;rerr=0;pack=0;
+rreq=0;rrep=0;rerr=0;pack=0;lpp=0;
 FS="[, : \t]";
 }
 {
@@ -9,18 +9,26 @@ if(NR==FNR){
     else if($i =="rrep") rrep++;
     else if($i =="rerr") rerr++;
     else if($i =="rrep-ack") pack++;
+    else if($i == "type") lpp++;
 }
 }
 if(NR!=FNR){
-  if(FNR==1) {loss=$1;print loss;}
-  if(FNR==2) {success=$1;print success;}
+  if(FNR==1) {loss=$1;printf ("%-8s\t%s\n","loss:",loss);}
+  if(FNR==2) {success=$1;printf ("%-8s\t%s\n","success:",success);}
 }
 }
-END{print rreq;print rrep;print rerr;print pack;
-sum=rreq+rrep+rerr+pack;
-print sum;
-expense=sum/(sum+success);
-print expense;
-pdr=success/(success+loss);
-print pdr;}
+END{
+	printf ("%-8s\t%s\n","RREQ:",rreq);
+	printf ("%-8s\t%s\n","RREP:",rrep);
+	printf ("%-8s\t%s\n","RERR:",rerr);
+	printf ("%-8s\t%s\n","RREP-ACK:",pack);
+	printf ("%-8s\t%s\n","LPP:",lpp);
+	
+	sum=rreq+rrep+rerr+pack+lpp;
+	printf ("%-8s\t%s\n","controlpacket:",sum);
+	expense=sum/(sum+success);
+	printf ("%-8s\t%s%\n","expense:",expense*100);
+	pdr=success/(success+loss);
+	printf ("%-8s\t%s%\n","pdr:",pdr*100);
+}
 

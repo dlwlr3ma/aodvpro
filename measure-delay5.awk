@@ -10,5 +10,5 @@ sum=0;sumdelay=0;
 END{
 delay=sumdelay/sum;
 #print sum;print sumdelay;
-print delay;
+printf ("%-8s\t%ss\n","averagedelay:",delay);
 }
