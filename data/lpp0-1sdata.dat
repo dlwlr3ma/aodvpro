@@ -1,0 +1,116 @@
+10
+loss:   	27
+success:	556
+RREQ:   	891
+RREP:   	93
+RERR:   	4
+RREP-ACK:	0
+LPP:    	12498
+controlpacket:	13486
+expense:	96.0405%
+pdr:    	95.3688%
+averagedelay:	0.010319s
+
+50
+loss:   	44
+success:	615
+RREQ:   	1884
+RREP:   	147
+RERR:   	2
+RREP-ACK:	0
+LPP:    	12499
+controlpacket:	14532
+expense:	95.9398%
+pdr:    	93.3232%
+averagedelay:	0.0118391s
+
+100
+loss:   	8
+success:	310
+RREQ:   	938
+RREP:   	94
+RERR:   	18
+RREP-ACK:	0
+LPP:    	12498
+controlpacket:	13548
+expense:	97.763%
+pdr:    	97.4843%
+averagedelay:	0.0153136s
+
+150
+loss:   	20
+success:	463
+RREQ:   	2044
+RREP:   	212
+RERR:   	19
+RREP-ACK:	0
+LPP:    	12497
+controlpacket:	14772
+expense:	96.9609%
+pdr:    	95.8592%
+averagedelay:	0.00640012s
+
+200
+loss:   	11
+success:	270
+RREQ:   	1466
+RREP:   	140
+RERR:   	22
+RREP-ACK:	0
+LPP:    	12497
+controlpacket:	14125
+expense:	98.1243%
+pdr:    	96.0854%
+averagedelay:	0.00496701s
+
+250
+loss:   	34
+success:	598
+RREQ:   	3607
+RREP:   	410
+RERR:   	81
+RREP-ACK:	0
+LPP:    	12498
+controlpacket:	16596
+expense:	96.522%
+pdr:    	94.6203%
+averagedelay:	0.00648964s
+
+300
+loss:   	117
+success:	410
+RREQ:   	5303
+RREP:   	604
+RERR:   	187
+RREP-ACK:	0
+LPP:    	12497
+controlpacket:	18591
+expense:	97.8422%
+pdr:    	77.7989%
+averagedelay:	0.0256534s
+
+500
+loss:   	69
+success:	426
+RREQ:   	6386
+RREP:   	851
+RERR:   	240
+RREP-ACK:	0
+LPP:    	12495
+controlpacket:	19972
+expense:	97.9116%
+pdr:    	86.0606%
+averagedelay:	0.0335484s
+
+1000
+loss:   	134
+success:	293
+RREQ:   	15791
+RREP:   	2174
+RERR:   	1046
+RREP-ACK:	0
+LPP:    	12492
+controlpacket:	31503
+expense:	99.0785%
+pdr:    	68.6183%
+averagedelay:	0.128965s
