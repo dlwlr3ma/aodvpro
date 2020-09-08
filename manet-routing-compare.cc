@@ -78,7 +78,9 @@
  #include "ns3/applications-module.h"
  #include "ns3/yans-wifi-helper.h"
  #include "ns3/netanim-module.h"
- 
+ #include <ctime>
+ #include "ns3/rng-seed-manager.h"
+
  using namespace ns3;
  using namespace dsr;
  
@@ -116,7 +118,7 @@
      packetsReceived (0),
      m_CSVfileName ("manet-routing.output.csv"),
      m_traceMobility (false),
-     m_protocol (1) // AODV
+     m_protocol (2) // AODV
  {
  }
  
@@ -215,7 +217,7 @@
  
    int nSinks = 10;
    double txp = 7.5;
- 
+   RngSeedManager::SetRun(int(time(0)));
    experiment.Run (nSinks, txp, CSVfileName);
  }
  
@@ -229,11 +231,11 @@
  
    int nWifis = 50;
  
-   double TotalTime = 105.0;
+   double TotalTime = 25.0;
    std::string rate ("2048b/s");
    std::string phyMode ("DsssRate11Mbps");
    std::string tr_name ("manet-routing-compare");
-   int nodeSpeed = 101; //in m/s
+   int nodeSpeed = 100; //in m/s
    int nodePause = 0; //in s
    m_protocolName = "protocol";
  
@@ -269,28 +271,44 @@
    NetDeviceContainer adhocDevices = wifi.Install (wifiPhy, wifiMac, adhocNodes);
  
    MobilityHelper mobilityAdhoc;
-   int64_t streamIndex = 0; // used to get consistent mobility across scenarios
+   //int64_t streamIndex = 0; // used to get consistent mobility across scenarios
  
-   ObjectFactory pos;
-   pos.SetTypeId ("ns3::RandomRectanglePositionAllocator");
-   pos.Set ("X", StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=300.0]"));
-   pos.Set ("Y", StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=1500.0]"));
+   //ObjectFactory pos;
+   //pos.SetTypeId ("ns3::RandomRectanglePositionAllocator");
+   //pos.Set ("X", StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=300.0]"));
+   //pos.Set ("Y", StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=1500.0]"));
  
-   Ptr<PositionAllocator> taPositionAlloc = pos.Create ()->GetObject<PositionAllocator> ();
-   streamIndex += taPositionAlloc->AssignStreams (streamIndex);
+   //Ptr<PositionAllocator> taPositionAlloc = pos.Create ()->GetObject<PositionAllocator> ();
+   //streamIndex += taPositionAlloc->AssignStreams (streamIndex);
  
-   std::stringstream ssSpeed;
-   ssSpeed << "ns3::UniformRandomVariable[Min=99.0|Max=" << nodeSpeed << "]";
-   std::stringstream ssPause;
-   ssPause << "ns3::ConstantRandomVariable[Constant=" << nodePause << "]";
-   mobilityAdhoc.SetMobilityModel ("ns3::RandomWaypointMobilityModel",
-                                   "Speed", StringValue (ssSpeed.str ()),
-                                   "Pause", StringValue (ssPause.str ()),
-                                   "PositionAllocator", PointerValue (taPositionAlloc));
-   mobilityAdhoc.SetPositionAllocator (taPositionAlloc);
+   //std::stringstream ssSpeed;
+   //ssSpeed << "ns3::UniformRandomVariable[Min=10.0|Max=" << nodeSpeed << "]";
+   //std::stringstream ssPause;
+   //ssPause << "ns3::ConstantRandomVariable[Constant=" << nodePause << "]";
+  
+   mobilityAdhoc.SetMobilityModel ("ns3::RandomWalk2dMobilityModel",
+		   "Mode", StringValue("Time"),
+		   "Time", StringValue("0.1s"),
+		   "Speed",StringValue("ns3::UniformRandomVariable[Min=300.0|Max=300.0]"),
+		   "Direction",StringValue("ns3::UniformRandomVariable[Min=0.0|Max=6.0]"),
+		   "Bounds", StringValue("-20|350|-20|1600"));
+  mobilityAdhoc.SetPositionAllocator ("ns3::GridPositionAllocator",
+		   "MinX",DoubleValue(0.0),
+		   "MinY",DoubleValue(0.0),
+		   "DeltaX",DoubleValue(60.0),
+		   "DeltaY",DoubleValue(150.0),
+		   "GridWidth",UintegerValue(5),
+		   "LayoutType",StringValue("RowFirst"));
+  
+   //mobilityAdhoc.SetMobilityModel ("ns3::RandomWaypointMobilityModel",
+   //                               "Speed", StringValue (ssSpeed.str ()),
+   //                                "Pause", StringValue (ssPause.str ()));
+   //                                "PositionAllocator", PointerValue (taPositionAlloc));
+   //mobilityAdhoc.SetPositionAllocator (taPositionAlloc);
+
    mobilityAdhoc.Install (adhocNodes);
-   streamIndex += mobilityAdhoc.AssignStreams (adhocNodes, streamIndex);
-   NS_UNUSED (streamIndex); // From this point, streamIndex is unused
+   //streamIndex += mobilityAdhoc.AssignStreams (adhocNodes, streamIndex);
+   //NS_UNUSED (streamIndex); // From this point, streamIndex is unused
  
    AodvHelper aodv;
    OlsrHelper olsr;
@@ -355,7 +373,7 @@
        Ptr<UniformRandomVariable> var = CreateObject<UniformRandomVariable> ();
        ApplicationContainer temp = onoff1.Install (adhocNodes.Get (i + nSinks));
        temp.Start (Seconds (1.0));
-       temp.Stop (Seconds (100.0));
+       temp.Stop (Seconds (20.0));
      }
  
    std::stringstream ss;
@@ -393,7 +411,7 @@
    CheckThroughput ();
  AnimationInterface anim("manet.xml");
  anim.SetStartTime(Seconds(0.0));
- anim.SetStopTime(Seconds(1.0));
+ anim.SetStopTime(Seconds(5.0));
 wifiPhy.EnableAsciiAll(ascii.CreateFileStream("manet-compare.tr"));
 wifiPhy.EnablePcap("manet-compare",adhocDevices);
 Simulator::Stop (Seconds (TotalTime));
