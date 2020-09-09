@@ -90,27 +90,27 @@ pdr:    	77.7989%
 averagedelay:	0.0256534s
 
 500
-loss:   	69
-success:	426
-RREQ:   	6386
-RREP:   	851
-RERR:   	240
+loss:   	124
+success:	501
+RREQ:   	7540
+RREP:   	820
+RERR:   	297
 RREP-ACK:	0
-LPP:    	12495
-controlpacket:	19972
-expense:	97.9116%
-pdr:    	86.0606%
-averagedelay:	0.0335484s
+LPP:    	12499
+controlpacket:	21156
+expense:	97.6867%
+pdr:    	80.16%
+averagedelay:	0.0358508s
 
 1000
-loss:   	134
-success:	293
-RREQ:   	15791
-RREP:   	2174
-RERR:   	1046
+loss:   	125
+success:	385
+RREQ:   	13466
+RREP:   	1535
+RERR:   	570
 RREP-ACK:	0
-LPP:    	12492
-controlpacket:	31503
-expense:	99.0785%
-pdr:    	68.6183%
-averagedelay:	0.128965s
+LPP:    	12498
+controlpacket:	28069
+expense:	98.6469%
+pdr:    	75.4902%
+averagedelay:	0.0646582s
