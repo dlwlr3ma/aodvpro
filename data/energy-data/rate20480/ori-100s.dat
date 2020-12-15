@@ -1,0 +1,126 @@
+speed:300
+Node0 remaining power: 2852.67
+Node1 remaining power: 2660.04
+Node2 remaining power: 2870.73
+Node3 remaining power: 2829.93
+Node4 remaining power: 2718.05
+Node5 remaining power: 2846.73
+Node6 remaining power: 2716.87
+Node7 remaining power: 2878.94
+Node8 remaining power: 2830.99
+Node9 remaining power: 2733.55
+Node10 remaining power: 2702.47
+Node11 remaining power: 2733.17
+Node12 remaining power: 2768.84
+Node13 remaining power: 3214.45
+Node14 remaining power: 3087.73
+Node15 remaining power: 2860.73
+Node16 remaining power: 2754.29
+Node17 remaining power: 2821.48
+Node18 remaining power: 2832.91
+Node19 remaining power: 3569.92
+Node20 remaining power: 2909.33
+Node21 remaining power: 3075.85
+Node22 remaining power: 2896.83
+Node23 remaining power: 3771.27
+Node24 remaining power: 2880.57
+Node25 remaining power: 2864.48
+Node26 remaining power: 2916.94
+Node27 remaining power: 3296.48
+Node28 remaining power: 2777.94
+Node29 remaining power: 3162.69
+Node30 remaining power: 4286.76
+Node31 remaining power: 4432.91
+Node32 remaining power: 4430.31
+Node33 remaining power: 3749.26
+Node34 remaining power: 3941.44
+Node35 remaining power: 4068.11
+Node36 remaining power: 3199.29
+Node37 remaining power: 3554.95
+Node38 remaining power: 3309.77
+Node39 remaining power: 4343.22
+Node40 remaining power: 4457.05
+Node41 remaining power: 3085.73
+Node42 remaining power: 4414.05
+Node43 remaining power: 3576.07
+Node44 remaining power: 3499.25
+Node45 remaining power: 4081.99
+Node46 remaining power: 3934.7
+Node47 remaining power: 3907.92
+Node48 remaining power: 4488.93
+Node49 remaining power: 3924.12
+loss:           12047
+success:        15778
+RREQ:           14887
+RREP:           19989
+RERR:           10730
+RREP-ACK:       1356
+LPP:            0
+controlpacket:  46962
+expense:        74.8518%
+pdr:            56.7044%
+averagedelay:   0.0165931s
+
+speed:200(195)
+Node0 remaining power: 2832.89
+Node1 remaining power: 2679.49
+Node2 remaining power: 2780.06
+Node3 remaining power: 2787.68
+Node4 remaining power: 2716.84
+Node5 remaining power: 2686.47
+Node6 remaining power: 2657.37
+Node7 remaining power: 2707.02
+Node8 remaining power: 2714.77
+Node9 remaining power: 2643.48
+Node10 remaining power: 2685.15
+Node11 remaining power: 2602.28
+Node12 remaining power: 2690.06
+Node13 remaining power: 2717.94
+Node14 remaining power: 2726.34
+Node15 remaining power: 2761.13
+Node16 remaining power: 2598.43
+Node17 remaining power: 2656.92
+Node18 remaining power: 2759.16
+Node19 remaining power: 3288.79
+Node20 remaining power: 2705.94
+Node21 remaining power: 2956.89
+Node22 remaining power: 2797.19
+Node23 remaining power: 3518.56
+Node24 remaining power: 2808.85
+Node25 remaining power: 2646.06
+Node26 remaining power: 2895.49
+Node27 remaining power: 3303.69
+Node28 remaining power: 2739.42
+Node29 remaining power: 3043.04
+Node30 remaining power: 4454.44
+Node31 remaining power: 4462.44
+Node32 remaining power: 4471.23
+Node33 remaining power: 3824.29
+Node34 remaining power: 3964.43
+Node35 remaining power: 4248
+Node36 remaining power: 3546.19
+Node37 remaining power: 3715.97
+Node38 remaining power: 3554.98
+Node39 remaining power: 4578.16
+Node40 remaining power: 4717.78
+Node41 remaining power: 3010.54
+Node42 remaining power: 4694.85
+Node43 remaining power: 4043.24
+Node44 remaining power: 4141.68
+Node45 remaining power: 4575.23
+Node46 remaining power: 4416.5
+Node47 remaining power: 4450.9
+Node48 remaining power: 4707.34
+Node49 remaining power: 4361.42
+loss:           10594
+success:        20307
+RREQ:           11686
+RREP:           17185
+RERR:           8004
+RREP-ACK:       1741
+LPP:            0
+controlpacket:  38616
+expense:        65.5364%
+pdr:            65.7163%
+averagedelay:   0.0125273s
+
